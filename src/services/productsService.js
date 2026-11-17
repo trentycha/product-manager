@@ -57,3 +57,17 @@ export async function updateProduct(id, product) {
  
     return await response.json()
 }
+
+export async function updateAv(id, product) {
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(product.available)
+    })
+ 
+    if(!response.ok) {
+        throw new Error('Erreur lors de la modification du produit')
+    }
+ 
+    return await response.json()
+}
