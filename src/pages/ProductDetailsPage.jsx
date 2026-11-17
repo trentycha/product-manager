@@ -1,10 +1,12 @@
 import {useState, useEffect} from 'react'
-import {useParams, Link} from 'react-router'
+import {useParams, Link, useNavigate} from 'react-router'
 import {getProductById} from '../services/productsService'
+import {deleteProduct} from '../services/productsService'
 
 export default function ProductDetailsPage() {
     const {id} = useParams();
     const[product, setProduct] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getProductById(id)
@@ -16,6 +18,11 @@ export default function ProductDetailsPage() {
         return <p className="container mt-5"> Chargement...</p>
     }
 
+    const handleDelete = () => {
+        deleteProduct(id)
+        navigate('/')
+    }
+
     return (
 
         <div className="container mt-5">
@@ -25,6 +32,8 @@ export default function ProductDetailsPage() {
 
             <p>{product.description}</p>
             <p className="fw-bold"> {product.price} €</p>
+
+            <button onClick={handleDelete} className="btn btn-danger">Supprimer</button>
 
             <Link to ="/" className="btn btn-secondary">
               Retour au catalogue
