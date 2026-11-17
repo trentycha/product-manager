@@ -43,3 +43,17 @@ export async function deleteProduct(id) {
         throw new Error('Suppression échouée')
     }
 }
+
+export async function updateProduct(id, product) {
+    const response = await fetch(`${API_URL}/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(product)
+    })
+ 
+    if(!response.ok) {
+        throw new Error('Erreur lors de la modification du produit')
+    }
+ 
+    return await response.json()
+}

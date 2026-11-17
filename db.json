@@ -9,12 +9,11 @@
       "image": "https://placehold.co/400x250"
     },
     {
-      "id": "3",
-      "name": "Clavier mécanique",
+      "name": "Clavier mécanique deux",
       "description": "Clavier mécanique avec switchs de qualité",
       "price": 59,
-      "available": false,
-      "image": "https://placehold.co/400x250"
+      "image": "https://placehold.co/400x250",
+      "id": "3"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

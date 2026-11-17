@@ -34,6 +34,7 @@ export default function ProductDetailsPage() {
             <p className="fw-bold"> {product.price} €</p>
 
             <button onClick={handleDelete} className="btn btn-danger">Supprimer</button>
+            <button onClick={() => navigate(`/products/update/${id}`)} className="btn btn-primary">Modifier</button>
 
             <Link to ="/" className="btn btn-secondary">
               Retour au catalogue
